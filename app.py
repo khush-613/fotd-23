@@ -21,5 +21,12 @@ def create_note():
     return jsonify(store.add_note(data["title"], data["body"])), 201
 
 
+@app.delete("/notes/<int:note_id>")
+def delete_note(note_id):
+    if store.delete_note(note_id) is None:
+        return jsonify({"error": "not found"}), 404
+    return "", 204
+
+
 if __name__ == "__main__":
     app.run(debug=True)

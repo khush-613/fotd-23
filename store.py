@@ -13,3 +13,7 @@ def add_note(title, body):
     _notes[_next_id] = note
     _next_id += 1
     return note
+
+
+def delete_note(note_id):
+    return _notes.pop(note_id, None)
