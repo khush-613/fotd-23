@@ -13,3 +13,4 @@ Open http://localhost:5000.
 
 - `GET /notes` list notes
 - `POST /notes` create a note (`{"title": "...", "body": "..."}`)
+- `DELETE /notes/<id>` remove a note
