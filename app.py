@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, request
 
+import config
 import store
 
 app = Flask(__name__)
+app.secret_key = config.SECRET_KEY
 
 
 @app.get("/")
@@ -29,4 +31,4 @@ def delete_note(note_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=config.DEBUG)
