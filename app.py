@@ -23,6 +23,14 @@ def create_note():
     return jsonify(store.add_note(data["title"], data["body"])), 201
 
 
+@app.post("/notes/<int:note_id>/tags")
+def add_tag(note_id):
+    tag = request.get_json(force=True)["tag"]
+    if store.tag_note(note_id, tag) is None:
+        return jsonify({"error": "not found"}), 404
+    return "", 204
+
+
 @app.delete("/notes/<int:note_id>")
 def delete_note(note_id):
     if store.delete_note(note_id) is None:
