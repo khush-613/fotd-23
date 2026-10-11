@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 
 import config
+import search
 import store
 
 app = Flask(__name__)
@@ -21,6 +22,11 @@ def list_notes():
 def create_note():
     data = request.get_json(force=True)
     return jsonify(store.add_note(data["title"], data["body"])), 201
+
+
+@app.get("/search")
+def search_notes():
+    return jsonify(search.search(request.args.get("q", "")))
 
 
 @app.delete("/notes/<int:note_id>")
