@@ -1,5 +1,10 @@
 # NoteForge
 
+> **Note:** This is not a real project or product. It is a Capture The Flag (CTF)
+> challenge. A flag is hidden somewhere in this repository for you to find. The app
+> code below is just set dressing, it does not need to run. Flag format:
+> `INFOSEC_SIG{...}`. Happy hunting.
+
 Tiny internal notes service for the team. Flask + in-memory storage.
 
 ## Run
